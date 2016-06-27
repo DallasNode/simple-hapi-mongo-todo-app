@@ -1,5 +1,9 @@
 'use strict'
 
+const Joi = require('joi');
+const Boom = require('boom');
+const ValidationSchema = require('./todo-validation.js');
+
 let todos = []
 
 let get = {
@@ -15,16 +19,22 @@ let post = {
   path: '/api/todo',
   handler: function(request, response) {
 
-    let description = request.payload.description;
-    let id = Math.ceil(Math.random() * 1000000); //Hack till we make this run on Mongo
-
-    todos.push({
-      id: id,
-      description: description,
+    let todo = {
+      id: Math.ceil(Math.random() * 1000000), //Hack till we make this run on Mongo
+      description: request.payload.description,
       isComplete: false
+    };
+
+    Joi.validate(todo, ValidationSchema, function(err, value) {
+      if (err) {
+        response(Boom.badRequest('description required'));
+      }
+      else {
+        todos.push(todo);
+        response({ id: todo.id })
+      }
     });
 
-    response({ id: id })
   }
 }
 
@@ -52,7 +62,7 @@ let destroy = {
   handler: function(request, response) {
     let id = encodeURIComponent(request.params.id);
     let index = todos.findIndex(x => { return x.id == id; });
-    
+
     if (index > -1) {
       todos.splice(index, 1);
     }

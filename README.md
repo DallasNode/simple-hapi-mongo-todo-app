@@ -23,3 +23,12 @@
 
 * Add PUT and DELETE
 * PUT with CURL - `curl -X PUT -d isComplete=false -d description=new http://localhost:8000/api/todo/538350`
+
+## Building Out a Basic UI
+
+## Errors
+
+* Install joi
+* Create validation schema
+* Install boom
+* Use Boom for errors

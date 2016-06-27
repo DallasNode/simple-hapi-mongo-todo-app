@@ -1,6 +1,7 @@
 (function(context) {
 
   let $list;
+  let $error;
 
   function load() {
     fetchDataAndRender();
@@ -9,6 +10,7 @@
     $('ol').on('click', '.delete', destroy)
 
     $list = $('ol');
+    $error = $('.error');
   }
 
   function destroy() {
@@ -49,7 +51,11 @@
       }
     })
     .done(function() {
+      $error.hide();
       fetchDataAndRender();
+    })
+    .fail(function() {
+      $error.show();
     });
   }
 

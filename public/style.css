@@ -97,3 +97,10 @@ li .delete {
   max-width: 600px;
   padding: 30px;
 }
+
+.error {
+  background-color: #A1C2CF;
+  color: red;
+  margin-top: 10px;
+  padding: 10px;
+}
