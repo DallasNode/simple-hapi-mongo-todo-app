@@ -8,3 +8,7 @@
 * Install hapi
 * Install inert
 * `npm start`
+
+## Deploying To Heroku
+
+* Using Heroku's port
