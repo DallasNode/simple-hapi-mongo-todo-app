@@ -3,6 +3,8 @@
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
 
+console.log('mongo process', process.env.MONGODB_URI);
+
 const Url = process.env.MONGODB_URI || 'mongodb://localhost:27017/';
 const CollectionKey = 'todo';
 
