@@ -3,14 +3,15 @@
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
 
-console.log('mongo process', process.env.MONGODB_URI);
-
-const Url = process.env.MONGODB_URI || 'mongodb://localhost:27017/';
 const CollectionKey = 'todo';
 
+let url = 'mongodb://localhost:27017/' + CollectionKey;
+if (process.env.MONGODB_URI) {
+  url = process.env.MONGODB_URI;
+}
 
 function connect(callback) {
-  MongoClient.connect(Url, function(err, db) {
+  MongoClient.connect(url, function(err, db) {
     callback(db);
   });
 }
