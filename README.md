@@ -32,3 +32,9 @@
 * Create validation schema
 * Install boom
 * Use Boom for errors
+
+## Mongo Integration
+
+* Get Mongo running
+* Install `mongodb` npm package
+* Remove `PUT` because we don't need it
