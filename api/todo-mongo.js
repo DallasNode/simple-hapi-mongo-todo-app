@@ -8,8 +8,9 @@ console.log('mongo process', process.env.MONGODB_URI);
 const Url = process.env.MONGODB_URI || 'mongodb://localhost:27017/';
 const CollectionKey = 'todo';
 
+
 function connect(callback) {
-  MongoClient.connect(Url + CollectionKey, function(err, db) {
+  MongoClient.connect(Url, function(err, db) {
     callback(db);
   });
 }
