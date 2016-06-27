@@ -32,3 +32,5 @@ server.register(require('inert'), (err) => {
         console.log('Server running at:', server.info.uri);
     });
 });
+
+require('./api/todo.js').registerApi(server);
