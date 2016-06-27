@@ -7,5 +7,9 @@
     "start": "node app.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^13.4.1",
+    "inert": "^4.0.0"
+  }
 }
